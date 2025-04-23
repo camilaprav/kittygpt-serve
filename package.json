@@ -1,0 +1,19 @@
+{
+  "name": "@camilaprav/kittygpt-serve",
+  "version": "0.0.1",
+  "description": "Demo CLI to KittyGPT server dependency",
+  "main": "serve.js",
+  "type": "module",
+  "author": "Camila Prá",
+  "license": "GPL-3,0+",
+  "bin": {
+    "kittygpt-serve": "./serve.js"
+  },
+  "dependencies": {
+    "@camilaprav/kittygpt": "^0.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "serve-handler": "^6.1.6"
+  }
+}
