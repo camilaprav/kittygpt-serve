@@ -1,6 +1,6 @@
 {
   "name": "@camilaprav/kittygpt-serve",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Demo CLI to KittyGPT server dependency",
   "main": "serve.js",
   "type": "module",
