@@ -8,6 +8,7 @@ import midcompletion from '@camilaprav/kittygpt/middleware/completion.js';
 import midvoicechat from '@camilaprav/kittygpt/middleware/voicechat.js';
 import path from 'path';
 import serve from 'serve-handler';
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 if (!fs.existsSync('.env')) {
@@ -21,8 +22,11 @@ if (!process.env.OPENAI_API_VOICECHAT_ENDPOINT) console.warn(`Missing OPENAI_API
 if (!process.env.OPENAI_API_KEY) console.warn(`Missing OPENAI_API_KEY. Add it to .env or clients must provide their own key.`);
 let dir = process.cwd();
 let app = express();
+let __filename = fileURLToPath(import.meta.url);
+let __dirname = dirname(__filename);
 app.use(cors());
 app.use(express.json());
+app.use('/mespeak', express.static(path.join(__dirname, 'mespeak')));
 app.use('/completion', midcompletion);
 app.use('/voicechat', midvoicechat);
 app.use('/.env', (req, res) => res.status(404).send('Not found'));
